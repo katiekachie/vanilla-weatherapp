@@ -1,0 +1,52 @@
+body {
+  background: #eaf6f6;
+}
+
+h1 {
+  font-family: "Barrio", cursive;
+  color: #66bfbf;
+  font-size: 50px;
+  margin-bottom: 0;
+  text-align: left;
+  margin-left: 20px;
+}
+
+h2 {
+  color: #f76b8a;
+  font-family: "Dosis", sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+h3 {
+  font-family: "Lato", sans-serif;
+  color: #66bfbf;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+  border: none;
+  border-radius: 10px;
+  padding: 20px;
+  background: #fcfefe;
+}
+
+.weatherimg {
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+}
+
+.weatherinfo {
+  color: #66bfbf;
+  font-size: 17px;
+  margin-top: 10px;
+  text-align: center;
+  font-family: "Dosis", sans-serif;
+}
