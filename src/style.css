@@ -5,8 +5,8 @@ body {
 h1 {
   font-family: "Barrio", cursive;
   color: #66bfbf;
-  font-size: 50px;
-  margin-bottom: 0;
+  font-size: 70px;
+  margin-bottom: -15px;
   text-align: left;
   margin-left: 20px;
 }
@@ -25,6 +25,29 @@ h3 {
   font-size: 20px;
   text-align: left;
   margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+a {
+  color: #f76b8a;
+}
+
+a:hover {
+  cursor: pointer;
+  background: #f76b8a;
+  text-decoration: none;
+  color: #fff;
+}
+
+footer {
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+hr {
+  color: #66bfbf;
 }
 
 .container {
@@ -37,16 +60,58 @@ h3 {
   background: #fcfefe;
 }
 
-.weatherimg {
+.weatherImg {
   width: 100px;
   height: 100px;
-  padding: 10px;
+  max-width: 100%;
+  margin-left: 20px;
+  padding-right: 10px;
 }
 
-.weatherinfo {
+.weatherImg2 {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 50px;
+  padding-top: 10px;
+}
+
+.weatherInfo {
   color: #66bfbf;
   font-size: 17px;
-  margin-top: 10px;
   text-align: center;
   font-family: "Dosis", sans-serif;
+}
+
+.tempNumber {
+  color: #66bfbf;
+  font-size: 60px;
+  line-height: 1;
+  font-family: "Barrio", cursive;
+}
+
+.extraTempinfo {
+  color: #f76b8a;
+  font-family: "Dosis", sans-serif;
+  font-size: 20px;
+  text-align: left;
+  margin-left: 20px;
+}
+
+.upcomingWeather {
+  font-family: "Dosis", sans-serif;
+  font-size: 30px;
+  color: #f76b8a;
+  border: #66bfbf 1px solid;
+  margin: 1px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.upcomingWeatherheader {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  color: #fff;
+  background: #66bfbf;
 }

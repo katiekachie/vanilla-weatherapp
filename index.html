@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -25,27 +27,70 @@
   </head>
   <body>
     <div class="container">
-      <h1>Test!</h1>
+      <h1 id="city">Beppu</h1>
       <h2>Wed, August 4 23:46</h2>
-      <h3>Blah blah blah</h3>
+      <h3 id="advice">Don't forget your sunscreen!</h3>
 
       <div class="row">
         <div class="col">
-          <img class="weatherimg" src="img/002-cloudy.svg" />
-          25 degrees
+          <img class="weatherImg" src="img/002-cloudy.svg" />
+          <span class="tempNumber" id="temperature">32°c</span>
         </div>
-        <div class="col">Information about the weather</div>
+        <div class="col extraTempinfo">
+          <ol>
+            <ul>
+              <strong id="high">High</strong
+              >: 32°c
+            </ul>
+            <ul>
+              <strong id="low">Low</strong
+              >: 12°c
+            </ul>
+            <ul>
+              <strong id="humidity">Humidity</strong
+              >: 70%
+            </ul>
+          </ol>
+        </div>
       </div>
 
       <hr />
 
-      <div>
+      <div class="row">
+        <div class="col upcomingWeather">
+          <div class="upcomingWeatherheader">Thursday</div>
+          <img class="weatherImg2" src="img/004-rainy.svg" />
+          15°c
+        </div>
+        <div class="col upcomingWeather">
+          <div class="upcomingWeatherheader">Friday</div>
+          <img class="weatherImg2" src="img/005-heavy rain.svg" />
+          5°c
+        </div>
+        <div class="col upcomingWeather">
+          <div class="upcomingWeatherheader">Saturday</div>
+          <img class="weatherImg2" src="img/007-thunder.svg" />
+          12°c
+        </div>
+        <div class="col upcomingWeather">
+          <div class="upcomingWeatherheader">Sunday</div>
+          <img class="weatherImg2" src="img/010-wind.svg" />
+          16°c
+        </div>
+        <div class="col upcomingWeather">
+          <div class="upcomingWeatherheader">Monday</div>
+          <img class="weatherImg2" src="img/002-cloudy.svg" />
+          18°c
+        </div>
+      </div>
+
+      <footer>
         Icons made by
         <a href="https://www.freepik.com" title="Freepik">Freepik</a> from
-        <a href="https://www.flaticon.com/" title="Flaticon"
-          >www.flaticon.com</a
-        >
-      </div>
+        <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a
+        >.<br />
+        Open source code made by Katie
+      </footer>
     </div>
 
     <script src="src/script.js"></script>
