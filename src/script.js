@@ -49,7 +49,10 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   highElement.innerHTML = Math.round(response.data.main.temp_max);
   lowElement.innerHTML = Math.round(response.data.main.temp_min);
-  iconElement.setAttribute("src", `img/${response.data.weather[0].icon}.svg`);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 let apiKey = "bd628911ba641cac30d433a5b0ffb8c6";
