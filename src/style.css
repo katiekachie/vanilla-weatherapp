@@ -100,9 +100,9 @@ hr {
 .extraTempinfo {
   color: #f76b8a;
   font-family: "Dosis", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
   text-align: left;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .upcomingWeather {

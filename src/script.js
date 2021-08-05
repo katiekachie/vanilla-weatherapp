@@ -47,6 +47,7 @@ function displayTemperature(response) {
   let highElement = document.querySelector("#high");
   let lowElement = document.querySelector("#low");
   let iconElement = document.querySelector("#icon");
+  let adviceElement = document.querySelector("#advice");
 
   celciusTemp = response.data.main.temp;
 
@@ -55,6 +56,7 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   highElement.innerHTML = Math.round(response.data.main.temp_max);
   lowElement.innerHTML = Math.round(response.data.main.temp_min);
+
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
