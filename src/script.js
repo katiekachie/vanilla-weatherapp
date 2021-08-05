@@ -51,10 +51,10 @@ function displayTemperature(response) {
   humidityElement.innerHTML = response.data.main.humidity;
   highElement.innerHTML = response.data.main.temp_max;
   lowElement.innerHTML = response.data.main.temp_min;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let apiKey = "bd628911ba641cac30d433a5b0ffb8c6";
-let city = "Torquay";
 let apiURL = `api.openweathermap.org/data/2.5/weather?q=London&appid={API key}`;
 
 axios.get(apiURL).then(displayTemperature);
