@@ -25,16 +25,32 @@
 
     <title>Katie's Weather App 🌤</title>
   </head>
-  <body>
+  <body></body>
+
     <div class="container">
-      <h1 id="city"></h1>
+
+ <div class="row">
+     <div class="col-7">
+         <h1 id="city"></h1>
       <h2 id="date">Wed, August 4 23:46</h2>
-      <h3>Don't forget your sunscreen!</h3>
+      <h3>Don't forget your sunscreen!</h3></div>
+    
+            
+        <div class="col-3">
+             <form id="search-form">
+         <input type="search" placeholder="change city" id="city-selector" autocomplete="off" class="form-control mt-2" /></div>
+         <div class="col-1"> <button type="submit" class="goButton"><img src="img/search.svg" width="23px;"></button></div>
+         <div class="col-1"> <button type="submit" class="goButton" id="check-location"><img src="img/location.svg" width="23px;"></button></div>          
+        </form>
+      </div>
+
+
+    
 
       <div class="row">
         <div class="col">
           <img class="weatherImg" id="icon" src="img/01d.svg" />
-          <span class="tempNumber"><span id="temperature"></span>°c</span>
+          <span class="tempNumber" id="temperature"></span><span class="celfa"><a href="#" id="celcius" class="active">°c</a> || <a href="#" id="fahrenheit">°f</a></span>
         </div>
         <div class="col extraTempinfo">
           <ol>
@@ -59,33 +75,6 @@
 
       <hr />
 
-      <div class="row">
-        <div class="col upcomingWeather">
-          <div class="upcomingWeatherheader">Thursday</div>
-          <img class="weatherImg2" src="img/01d.svg" />
-          15°c
-        </div>
-        <div class="col upcomingWeather">
-          <div class="upcomingWeatherheader">Friday</div>
-          <img class="weatherImg2" src="img/02d.svg" />
-          5°c
-        </div>
-        <div class="col upcomingWeather">
-          <div class="upcomingWeatherheader">Saturday</div>
-          <img class="weatherImg2" src="img/09d.svg" />
-          12°c
-        </div>
-        <div class="col upcomingWeather">
-          <div class="upcomingWeatherheader">Sunday</div>
-          <img class="weatherImg2" src="img/50d.svg" />
-          16°c
-        </div>
-        <div class="col upcomingWeather">
-          <div class="upcomingWeatherheader">Monday</div>
-          <img class="weatherImg2" src="img/13d.svg" />
-          18°c
-        </div>
-      </div>
 
       <footer>
         Icons made by

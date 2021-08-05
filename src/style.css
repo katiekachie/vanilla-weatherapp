@@ -30,12 +30,12 @@ h3 {
 
 a {
   color: #f76b8a;
+  text-decoration: none;
 }
 
 a:hover {
   cursor: pointer;
   background: #f76b8a;
-  text-decoration: none;
   color: #fff;
 }
 
@@ -85,8 +85,15 @@ hr {
 
 .tempNumber {
   color: #66bfbf;
-  font-size: 60px;
+  font-size: 80px;
   line-height: 1;
+  font-family: "Barrio", cursive;
+}
+
+.celfa {
+  color: #66bfbf;
+  font-size: 30px;
+  margin-left: 10px;
   font-family: "Barrio", cursive;
 }
 
@@ -114,4 +121,31 @@ hr {
   font-size: 20px;
   color: #fff;
   background: #66bfbf;
+}
+
+.goButton {
+  background: #eaf6f6;
+  margin-left: -20px;
+  margin-top: 8px;
+  width: 60px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  color: #66bfbf;
+}
+
+.goButton:hover {
+  background: #66bfbf;
+  color: #eaf6f6;
+}
+
+.active {
+  color: #66bfbf;
+  text-decoration: none;
+}
+
+.active:hover {
+  cursor: default;
+  background: #fcfefe;
+  color: #66bfbf;
 }

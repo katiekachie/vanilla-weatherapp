@@ -6,6 +6,11 @@ let date = document.querySelector("#date");
 let currentDate = now.getDate();
 let currentHours = now.getHours();
 let currentMins = now.getMinutes();
+
+if (currentMins < 10) {
+  currentMins = `0${currentMins}`;
+}
+
 let days = [
   "Sunday",
   "Monday",
@@ -36,7 +41,6 @@ date.innerHTML = `${day}, ${month} ${currentDate}, ${currentHours}:${currentMins
 
 //change temperature
 function displayTemperature(response) {
-  console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let humidityElement = document.querySelector("#humidity");
@@ -44,7 +48,9 @@ function displayTemperature(response) {
   let lowElement = document.querySelector("#low");
   let iconElement = document.querySelector("#icon");
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  celciusTemp = response.data.main.temp;
+
+  temperatureElement.innerHTML = Math.round(celciusTemp);
   cityElement.innerHTML = response.data.name;
   humidityElement.innerHTML = response.data.main.humidity;
   highElement.innerHTML = Math.round(response.data.main.temp_max);
@@ -55,8 +61,67 @@ function displayTemperature(response) {
   );
 }
 
-let apiKey = "bd628911ba641cac30d433a5b0ffb8c6";
-let cityName = "Torquay";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+function search(cityName) {
+  let apiKey = "bd628911ba641cac30d433a5b0ffb8c6";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+  axios.get(`${apiUrl}`).then(displayTemperature);
+}
 
-axios.get(`${apiUrl}`).then(displayTemperature);
+// selecting form
+function clickSearch(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-selector");
+  search(cityInputElement.value);
+}
+
+//change f to c
+function displayfahrenheitTemp(event) {
+  event.preventDefault();
+  newCelciusTemp.classList.remove("active");
+  fahrenheitTemp.classList.add("active");
+  let fahrenheitTempChange = (celciusTemp * 9) / 5 + 32;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTempChange);
+}
+
+function displaycelciusTemp(event) {
+  event.preventDefault();
+  newCelciusTemp.classList.add("active");
+  fahrenheitTemp.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemp);
+}
+
+let celciusTemp = null;
+
+// selecting form -- global variable
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", clickSearch);
+
+//change f to c -- global variable
+let fahrenheitTemp = document.querySelector("#fahrenheit");
+fahrenheitTemp.addEventListener("click", displayfahrenheitTemp);
+
+let newCelciusTemp = document.querySelector("#celcius");
+newCelciusTemp.addEventListener("click", displaycelciusTemp);
+
+//current location
+
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(myLocation);
+}
+
+function myLocation(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+
+  let apiKey = "bd628911ba641cac30d433a5b0ffb8c6";
+  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+  axios.get(url).then(displayTemperature);
+}
+
+let currentLocation = document.querySelector("#check-location");
+currentLocation.addEventListener("click", getCurrentLocation);
+
+search("Torquay");
