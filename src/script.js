@@ -1,39 +1,38 @@
 //format and change date
-function formatDate(timestamp) {
-  let date = new Date(timestamp);
-  let hours = date.getHours();
-  if (hours < 10) {
-    minutes = `0${minutes}`;
-  }
+let now = new Date();
 
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+let date = document.querySelector("#date");
 
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
+let currentDate = now.getDate();
+let currentHours = now.getHours();
+let currentMins = now.getMinutes();
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let day = days[now.getDay()];
+let months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
 
-  let day = days[now.getDay()];
-  return `${day}, ${month} ${date} ${hours}:${minutes}`;
-}
+let month = months[now.getMonth()];
+date.innerHTML = `${day}, ${month} ${currentDate}, ${currentHours}:${currentMins}`;
 
 //change temperature
 function displayTemperature(response) {
@@ -43,19 +42,17 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let highElement = document.querySelector("#high");
   let lowElement = document.querySelector("#low");
-  let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   humidityElement.innerHTML = response.data.main.humidity;
-  highElement.innerHTML = response.data.main.temp_max;
-  lowElement.innerHTML = response.data.main.temp_min;
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  highElement.innerHTML = Math.round(response.data.main.temp_max);
+  lowElement.innerHTML = Math.round(response.data.main.temp_min);
 }
 
 let apiKey = "bd628911ba641cac30d433a5b0ffb8c6";
-let cityName = "London";
+let cityName = "Torquay";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
 
-axios.get(apiUrl).then(displayTemperature);
+axios.get(`${apiUrl}`).then(displayTemperature);
