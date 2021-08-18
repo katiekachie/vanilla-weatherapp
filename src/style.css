@@ -19,15 +19,6 @@ h2 {
   margin-left: 20px;
 }
 
-h3 {
-  font-family: "Lato", sans-serif;
-  color: #66bfbf;
-  font-size: 20px;
-  text-align: left;
-  margin-left: 20px;
-  margin-bottom: 30px;
-}
-
 a {
   color: #f76b8a;
   text-decoration: none;
@@ -66,6 +57,7 @@ hr {
   max-width: 100%;
   margin-left: 20px;
   padding-right: 10px;
+  padding-bottom: 30px;
 }
 
 .weatherImg2 {
@@ -80,7 +72,7 @@ hr {
   color: #66bfbf;
   font-size: 17px;
   text-align: center;
-  font-family: "Dosis", sans-serif;
+  font-family: "Barrio", cursive;
 }
 
 .tempNumber {
@@ -117,7 +109,7 @@ hr {
 }
 
 .upcomingWeatherheader {
-  font-family: "Lato", sans-serif;
+  font-family: "Dosis", sans-serif;
   font-size: 20px;
   color: #fff;
   background: #66bfbf;

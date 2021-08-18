@@ -44,7 +44,15 @@ date.innerHTML = `${day}, ${month} ${currentDate}, ${currentHours}:${currentMins
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
   return days[day];
 }
 
@@ -92,7 +100,7 @@ function displayForecast(response) {
           )}" class=weatherImg2>
          <div class="forecastTempInfo"> ${Math.round(
            forecastDay.temp.day
-         )}°</div>
+         )}°c</div>
         </div>
    `;
     }
