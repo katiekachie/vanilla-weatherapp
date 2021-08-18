@@ -48,6 +48,33 @@ function formatDay(timestamp) {
   return days[day];
 }
 
+function displayImages(icon) {
+  let url = null;
+  if (icon === "04d" || icon === "04n") {
+    url = `img/04d.svg`;
+  } else if (icon === "01d" || icon === "01n") {
+    url = `img/01d.svg`;
+  } else if (icon === "02d" || icon === "02n") {
+    url = `img/02d.svg`;
+  } else if (icon === "50d") {
+    url = `img/050.svg`;
+  } else if (icon === "10d") {
+    url = `img/10d.svg`;
+  } else if (icon === "03d" || icon === "03n") {
+    url = `img/03d.svg`;
+  } else if (icon === "09d") {
+    url = `img/09d.svg`;
+  } else if (icon === "13d") {
+    url = `img/13d.svg`;
+  } else if (icon === "11d") {
+    url = `img/11d.svg`;
+  } else {
+    url = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+  }
+
+  return url;
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -60,9 +87,9 @@ function displayForecast(response) {
         ` 
         <div class="col upcomingWeather">
         <div class="upcomingWeatherheader">${formatDay(forecastDay.dt)}</div>
-          <img src="http://openweathermap.org/img/wn/${
+          <img src="${displayImages(
             forecastDay.weather[0].icon
-          }@2x.png">
+          )}" class=weatherImg2>
          <div class="forecastTempInfo"> ${Math.round(
            forecastDay.temp.day
          )}°</div>
@@ -100,7 +127,7 @@ function displayTemperature(response) {
 
   iconElement.setAttribute(
     "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    `${displayImages(response.data.weather[0].icon)}`
   );
 
   getForecast(response.data.coord);
@@ -119,7 +146,7 @@ function clickSearch(event) {
   search(cityInputElement.value);
 }
 
-//change f to c
+//change f to c -- I want to keep this for future reference!
 function displayfahrenheitTemp(event) {
   event.preventDefault();
   newCelciusTemp.classList.remove("active");
