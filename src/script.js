@@ -39,6 +39,34 @@ let months = [
 let month = months[now.getMonth()];
 date.innerHTML = `${day}, ${month} ${currentDate}, ${currentHours}:${currentMins}`;
 
+// upcoming forecast code
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+        <div class="col upcomingWeather">
+        <div class="upcomingWeatherheader">${forecastDay.dt}</div>
+          <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
+          ${forecastDay.temp}
+        </div>
+   `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coordinates) {
+  let apiKey = "bd628911ba641cac30d433a5b0ffb8c6";
+  let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiURL).then(displayForecast);
+}
+
 //change temperature
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
@@ -47,7 +75,6 @@ function displayTemperature(response) {
   let highElement = document.querySelector("#high");
   let lowElement = document.querySelector("#low");
   let iconElement = document.querySelector("#icon");
-  let adviceElement = document.querySelector("#advice");
 
   celciusTemp = response.data.main.temp;
 
@@ -61,6 +88,8 @@ function displayTemperature(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function search(cityName) {
@@ -127,3 +156,4 @@ let currentLocation = document.querySelector("#check-location");
 currentLocation.addEventListener("click", getCurrentLocation);
 
 search("Torquay");
+displayForecast();
