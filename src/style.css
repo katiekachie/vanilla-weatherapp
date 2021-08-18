@@ -149,3 +149,13 @@ hr {
   background: #fcfefe;
   color: #66bfbf;
 }
+
+.forecastTempInfo {
+  font-family: "Dosis", sans-serif;
+  font-size: 30px;
+  color: #f76b8a;
+  margin: 1px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 2px;
+}

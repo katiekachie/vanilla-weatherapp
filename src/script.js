@@ -40,21 +40,35 @@ let month = months[now.getMonth()];
 date.innerHTML = `${day}, ${month} ${currentDate}, ${currentHours}:${currentMins}`;
 
 // upcoming forecast code
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat"];
+  return days[day];
+}
+
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
-  forecast.forEach(function (forecastDay) {
-    forecastHTML =
-      forecastHTML +
-      ` 
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        ` 
         <div class="col upcomingWeather">
-        <div class="upcomingWeatherheader">${forecastDay.dt}</div>
-          <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png">
-          ${forecastDay.temp}
+        <div class="upcomingWeatherheader">${formatDay(forecastDay.dt)}</div>
+          <img src="http://openweathermap.org/img/wn/${
+            forecastDay.weather[0].icon
+          }@2x.png">
+         <div class="forecastTempInfo"> ${Math.round(
+           forecastDay.temp.day
+         )}°</div>
         </div>
    `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
